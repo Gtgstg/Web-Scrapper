@@ -8,7 +8,7 @@ let app = express();
 app.get('/arbitrage', function(req, resp){
 
     let stock = ['Infosys','TataSteel'];
-    let url = ['https://www.moneycontrol.com/india/stockpricequote/computers-software/infosys/IT','https://www.moneycontrol.com/india/stockpricequote/steel-large/tatasteel/TIS'];
+    let url = ['https://www.business-standard.com/company/infosys-2806.html','https://www.business-standard.com/company/tata-steel-566.html'];
     let htm = fs.readFileSync('demo.html', 'utf8');
     let page = cheerio.load(htm);
 
@@ -21,7 +21,7 @@ app.get('/arbitrage', function(req, resp){
                 let $ = cheerio.load(html);
                 let values=[];
 
-                $('.span_price_wrap').filter(function(){
+                $('.h1-big-green').filter(function(){
                     let data = $(this);
                     values.push(parseFloat(data.text()));
                 });
