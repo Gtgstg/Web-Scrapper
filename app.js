@@ -25,6 +25,12 @@ app.get('/arbitrage', function(req, resp){
                     let data = $(this);
                     values.push(parseFloat(data.text()));
                 });
+                if(values.length == 0) {
+                    $('.h1-big-red').filter(function(){
+                        let data = $(this);
+                        values.push(parseFloat(data.text()));
+                    });
+                }
 
                 page('.my_table').append(
                     `<tr>
